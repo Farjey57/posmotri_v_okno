@@ -12,6 +12,7 @@ html {
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
+  padding: 133px 30px;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -35,4 +36,16 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.content {
+  display: flex;
+  column-gap: 30px;
+  margin: auto;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.search-form {
+  display: flex;
 }
