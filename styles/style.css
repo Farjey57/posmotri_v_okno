@@ -52,7 +52,7 @@ ol {
 
 .button {
   width: 100%;
-  padding: 6px 0;
+  padding: 5px 0;
   border: 1px solid #FFF;
   background-color: transparent;
   color: #fff;
@@ -63,18 +63,36 @@ ol {
   cursor: pointer;
 }
 
+.button:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+} 
+
+.button:active {
+  background: #545050;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #FFF;
+  outline-offset: 1px;
+}
+
 /* Title */
 
 .title {
-  margin-bottom: 26px;
-  font-family: "Oswald", sans-serif;
+  margin-bottom: 24px;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 0.95;
   font-weight: 700;
 }
 
- /* Content__list */
+ /* Content */
 
 .content {
   display: flex;
@@ -87,23 +105,64 @@ ol {
   color: #545050;
 }
 
+/* Секция content__details */
+
+.content__details {
+  min-inline-size: 399px;
+  margin-bottom: -2px;
+}
+
+ /* Content__list список видео */
+
 .content__list {
   block-size: 298px;
   overflow-y: scroll;
   position: relative;
 }
 
+.content__list:focus {
+  outline: none;
+}
+
+.content__list:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
 .content__list-item:not(:last-child) {
   margin-bottom: 30px;
 }
 
-.content__card-link {
-  text-decoration: none;
-  display: block;
+.content__list-item:hover{
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.content__details {
-  min-inline-size: 399px;
+.content__list-item:active {
+  text-decoration: none;
+  background-color: #545050;
+}
+
+/* Карточка списка видео */
+
+.content__card-link {
+  display: block;
+  text-decoration: none;
+  margin: 2px;
+}
+
+.content__card-link_current {
+  /* для активной карточки */
+  background-color: #545050;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .content__video-card {
@@ -113,9 +172,26 @@ ol {
   padding: 2px;
 }
 
-.content__video-card__active {
-  /* для активной карточки */
-  background-color: #545050;
+.content__video-card-description-container {
+  color: #fff;
+  overflow: hidden;
+  margin-right: 5px;
+}
+
+.content__video-card-title {
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.content__video-card-description {
+  line-height: 1;
+  font-weight: 400;
 }
 
 .content__video-card-thumbnail {
@@ -124,41 +200,27 @@ ol {
   flex-shrink: 0;
 }
 
-.content__video-card-description-container {
-  color: #fff;
-  overflow: hidden;
-  margin-right: 5px;
+.more-button {
+  margin: 2px;
 }
 
-.content__video-card-description {
-  line-height: 0.9;
-  font-weight: 400;
-}
-
-.content__video-card-title {
-  margin-bottom: 6px;
-  font-family: "Oswald", sans-serif;
-  text-transform: uppercase;
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1;
-  text-overflow: ellipsis;
-  overflow: hidden;
+li:has(.more-button) {
+  display: flex;
 }
 
 /* Result */
-.result {
-  
-}
 
 .result__video-container {
   margin-bottom: 16px;
-  inline-size: 711px;
+  width: 711px;
+  height: 386px;
   position: relative;
 }
 
 .result__video {
   inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
   display: block;
 }
 
@@ -167,10 +229,10 @@ ol {
 .search-form {
   display: flex;
   column-gap: 40px;
-
 }
 
 .search-form__fieldset {
+  /* flex-grow чтобы все забрали свободное пространство пропорционально*/
   border: none;
   flex-grow: 1;
 }
@@ -196,13 +258,12 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   color: #FFF;
   border: none;
-  border-top: 1px solid #FFF;
-  border-bottom: 1px solid #FFF;
+  border-block: 1px solid #FFF;
   appearance: none;
 }
 
 .search-form__textfield::placeholder {
-  color: rgba(255, 255, 255, 0.70);
+  color: rgb(255 255 255 / 0.70);
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
 }
@@ -225,13 +286,14 @@ ol {
 
 .search-form__label:hover {
   text-decoration: underline;
-  text-underline-offset: 10px;
+  text-underline-offset: 2px;
 }
 
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 1px;
 }
+
 
 .search-form__pseudo-checkbox {
   display: inline-flex;
