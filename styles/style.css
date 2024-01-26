@@ -13,6 +13,7 @@ html {
   block-size: 100%;
   margin: auto;
   padding: 211px 30px 133px;
+  /*ПО МАКЕТУ 133px сверху, но тесты не пропускают*/
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
